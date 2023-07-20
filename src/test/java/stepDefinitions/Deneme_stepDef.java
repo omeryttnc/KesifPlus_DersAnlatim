@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.apache.poi.hssf.record.StyleRecord;
 import org.junit.Test;
 import utilities.ConfigurationReader;
 
@@ -130,5 +131,9 @@ public class Deneme_stepDef {
     public void scenariomIcindeGenelOlarakAndVeAnd(String arg0, int arg1, int arg2, int arg3, String arg4) {
     }
 
-
+    @Test
+    public void name() {
+        String name = "omer";
+        System.out.println("name.addGmail() = " + name.addGmail());
+    }
 }
