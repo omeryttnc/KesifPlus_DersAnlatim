@@ -132,8 +132,15 @@ public class Deneme_stepDef {
     }
 
     @Test
-    public void name() {
+    public void extensionMethodSample() {
         String name = "omer";
+        // extension methodlar
         System.out.println("name.addGmail() = " + name.addGmail());
+        // old style
+        System.out.println("name.addHotmail() = " +addHotmail(name));
+    }
+
+    String addHotmail(String name){
+        return name+"@hotmail.com";
     }
 }
