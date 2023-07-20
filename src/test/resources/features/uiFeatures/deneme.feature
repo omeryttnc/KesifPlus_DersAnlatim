@@ -6,8 +6,8 @@ Feature: Login
 #      Given user goes to test page
 #
 #  Rule: bullet point 2 canli
-    Background: goto test sayfasina gidecegiz
-     Given user goes to production page
+#    Background: goto test sayfasina gidecegiz
+#     Given user goes to production page
 #
 #  Rule: bullet point 3 deneme
 #    @UI
