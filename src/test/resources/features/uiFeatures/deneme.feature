@@ -16,7 +16,7 @@ Feature: Login
   Scenario: is user able to login version 1
     Given Step Definition icinde user and password
 
-#    @UI
+    @UI
 #    @firefox
   Scenario: is user able to login version 2
     Given Configuration properties kullanarak
