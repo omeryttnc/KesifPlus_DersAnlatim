@@ -1,0 +1,8 @@
+[attr='value']   -> [href='/']
+tag[attr='value'] -> a[href^='/']
+parent tag[attr='value'] -> li a[href^='/']
+parent>tag[attr='value'] -> li a[href^='/']
+
+^ -> starts with -> [href^='/']
+$ -> ends with -> [href$='/']
+* -> includes -> [href*='/']
