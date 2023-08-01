@@ -59,7 +59,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-//        Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 
@@ -73,10 +73,9 @@ public class Hooks {
     @After("@DB")
     public void closeDatabase() {
       //   DatabaseUtilities.closeConnection();
-
     }
 
-    @Before("@user1")
+    @Before(value = "@user1",order = 1)
     public void denemeLogin() {
         System.out.println(
                 "email : " + ConfigurationReader.getProperty("user1_email") +
@@ -84,6 +83,12 @@ public class Hooks {
         );
 
 
+    }
+
+
+    @Before(value = "@denemeSetup")
+    public void denemeSetup(){
+        System.out.println("deneme setup cagirildi");
     }
 
 

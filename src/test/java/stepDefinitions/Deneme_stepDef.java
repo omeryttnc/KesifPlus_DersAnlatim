@@ -1,22 +1,15 @@
 package stepDefinitions;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.apache.poi.hssf.record.StyleRecord;
+import manifold.rt.api.DisableStringLiteralTemplates;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import pojos.Person;
 import utilities.ConfigurationReader;
 
-import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static stepDefinitions.Hooks.driver;
 
 public class Deneme_stepDef {
     String user1_email = "user1@gmail.com";
@@ -139,16 +132,18 @@ public class Deneme_stepDef {
     public void extensionMethodSample() {
         String name = "omer";
         // extension methodlar
-        System.out.println("name.addGmail() = " + name.addGmail());
+        System.out.println("name.addGmail()  = " + name.addGmail());
         // old style
-        System.out.println("name.addHotmail() = " +addHotmail(name));
-        Person person =new Person("omer","ali");
+        System.out.println("name.addHotmail() = " + addHotmail(name));
+        Person person = new Person("omer", "ali");
         System.out.println(person.firstName());
         System.out.println(person.getFullName());
         System.out.println(person.email());
+
     }
 
-    String addHotmail(String name){
-        return name+"@hotmail.com";
+
+    String addHotmail(String name) {
+        return name + "@hotmail.com";
     }
 }
