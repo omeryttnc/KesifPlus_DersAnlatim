@@ -6,3 +6,8 @@ parent>tag[attr='value'] -> li a[href^='/']
 ^ -> starts with -> [href^='/']
 $ -> ends with -> [href$='/']
 * -> includes -> [href*='/']
+
+. -> class
+# -> id
+
+tag. -> div.package1

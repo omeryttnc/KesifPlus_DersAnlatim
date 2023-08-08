@@ -9,6 +9,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
+import pojos.Deneme;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
@@ -16,6 +17,7 @@ import utilities.Driver;
 public class Hooks {
     public static WebDriver driver;
     public static CommonPage commonPage;
+    public static Deneme deneme;
     public static Actions actions;
 
     public static boolean isHeadless = false;
@@ -47,6 +49,7 @@ public class Hooks {
     public void setup() {
 
         driver = Driver.getDriver();
+        deneme =  new Deneme("omer",5);
         commonPage = new CommonPage() {
         };
         actions = new Actions(driver);
