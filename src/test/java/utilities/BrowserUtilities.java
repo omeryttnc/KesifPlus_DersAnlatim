@@ -56,8 +56,8 @@ public class BrowserUtilities {
 
     /**
      *
-     * @param name
-     * @return
+     * @param name deneme
+     * @return deneme retun
      */
     public static String denemeJavaDoc(String name){
         return name.toLowerCase();
