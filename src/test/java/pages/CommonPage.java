@@ -12,6 +12,7 @@ public abstract class CommonPage {
 
     private HomePage homePage;
     private LoginPage loginPage;
+    private ConsultingPage consultingPage;
 
     public LoginPage getLoginPage() {
         if (loginPage == null) {
@@ -27,4 +28,9 @@ public abstract class CommonPage {
         return homePage;
     }
 
+    public ConsultingPage getConsultingPage() {
+        if (consultingPage == null)
+            consultingPage =  new ConsultingPage();
+        return consultingPage;
+    }
 }
