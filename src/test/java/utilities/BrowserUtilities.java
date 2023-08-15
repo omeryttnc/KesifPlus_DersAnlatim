@@ -1,6 +1,7 @@
 package utilities;
 
 
+import manifold.ext.rt.api.This;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -61,5 +62,30 @@ public class BrowserUtilities {
      */
     public static String denemeJavaDoc(String name){
         return name.toLowerCase();
+    }
+
+    /**
+     * is used to assert alert
+     * @param expectedAlert expected alert
+     *
+     */
+    public static void assertAlert(String expectedAlert) {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertEquals(expectedAlert,driver.switchTo().alert() .getText());
+
+    }
+    public static void acceptAlert() {
+        driver.switchTo().alert().accept();
+
+    }
+
+    public static void assertWarningText(WebElement thiz, String expectedWarningText){
+        String actualValidationMessage = thiz.getAttribute("validationMessage");
+        Assert.assertEquals(expectedWarningText,actualValidationMessage);
+
     }
 }

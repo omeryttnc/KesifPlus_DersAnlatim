@@ -13,6 +13,22 @@ public abstract class CommonPage {
     private HomePage homePage;
     private LoginPage loginPage;
     private ConsultingPage consultingPage;
+    private RegisterPage registerPage;
+    private WelcomePage welcomePage;
+
+    public WelcomePage getWelcomePage() {
+        if (welcomePage == null) {
+            welcomePage = new WelcomePage();
+        }
+        return welcomePage;
+    }
+
+    public RegisterPage getRegisterPage() {
+        if (registerPage == null) {
+            registerPage = new RegisterPage();
+        }
+        return registerPage;
+    }
 
     public LoginPage getLoginPage() {
         if (loginPage == null) {
@@ -30,7 +46,7 @@ public abstract class CommonPage {
 
     public ConsultingPage getConsultingPage() {
         if (consultingPage == null)
-            consultingPage =  new ConsultingPage();
+            consultingPage = new ConsultingPage();
         return consultingPage;
     }
 }
