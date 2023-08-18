@@ -5,9 +5,18 @@ public enum EnumCalismasi {
     USER2("user2@gmail.com", "user2Passsword"),
     USER3("user3@gmail.com", "user3Passsword"),
     USER4("user4@gmail.com", "user4Passsword"),
+    DEMOKESIF("demokesif1@gmail.com", "123456789"),
     ;
     private String email;
     private String password;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     EnumCalismasi(String email, String password) {
         this.email = email;
