@@ -94,7 +94,7 @@ public class week4 {
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("user.dir") + "\\src\\test\\resources\\SqliteDatabase.db");
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT  * from Users");
+            resultSet = statement.executeQuery("SELECT * from Users");
 
             while (resultSet.next()){
                 System.out.println("resultSet.getString(\"firstName\") = " + resultSet.getString("firstName"));
