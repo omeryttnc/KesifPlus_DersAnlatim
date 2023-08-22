@@ -85,7 +85,7 @@ public class DatabaseUtilities {
 
             }
         } catch (SQLException e) {
-
+e.printStackTrace();
         }
         return mapList;
     }
@@ -107,7 +107,7 @@ public class DatabaseUtilities {
 
             }
         } catch (SQLException e) {
-
+e.printStackTrace();
         }
         return mapList;
     }
