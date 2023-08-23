@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pojos.Deneme;
 import utilities.ConfigurationReader;
+import utilities.DatabaseUtilities;
 import utilities.Driver;
 
 
@@ -49,7 +50,7 @@ public class Hooks {
     public void setup() {
 
         driver = Driver.getDriver();
-        deneme =  new Deneme("omer",5);
+        deneme = new Deneme("omer", 5);
         commonPage = new CommonPage() {
         };
         actions = new Actions(driver);
@@ -67,18 +68,28 @@ public class Hooks {
     }
 
 
-    @Before("@DB")
-    public void setupDatabase() {
-    //    DatabaseUtilities.createConnection();
+    @Before("@MDB")
+    public void setupMysqlDatabase() {
+        DatabaseUtilities.createMysqlConnection();
 
     }
 
-    @After("@DB")
-    public void closeDatabase() {
-      //   DatabaseUtilities.closeConnection();
+    @Before("@SDB")
+    public void setupSqliteDatabase() {
+        DatabaseUtilities.createSqliteConnection();
+
     }
 
-    @Before(value = "@user1",order = 1)
+    @After("@SDB")
+    public void closeSqlieDatabase() {
+        DatabaseUtilities.closeDatabase();
+    }
+    @After("@MDB")
+    public void closeMySqlDatabase() {
+        DatabaseUtilities.closeDatabase();
+    }
+
+    @Before(value = "@user1", order = 1)
     public void denemeLogin() {
         System.out.println(
                 "email : " + ConfigurationReader.getProperty("user1_email") +
@@ -90,11 +101,9 @@ public class Hooks {
 
 
     @Before(value = "@denemeSetup")
-    public void denemeSetup(){
+    public void denemeSetup() {
         System.out.println("deneme setup cagirildi");
     }
-
-
 
 
 }
