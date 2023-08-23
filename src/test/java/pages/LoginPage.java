@@ -12,16 +12,6 @@ public class LoginPage extends CommonPage{
     @FindBy(css = ".mainButton-light-outlined")                     public WebElement loginButton;
 
 
-
-
-
-    @FindBy(id = "email-uniq")
-    private WebElement email;
-
-
-    @FindBy(id = "password-uniq")
-    private WebElement password;
-
     @FindBy(css = "#loginForm [type='submit']")
     private WebElement submit;
 
