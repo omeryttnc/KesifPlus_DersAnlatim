@@ -34,6 +34,10 @@ public class HomePage extends CommonPage {
     public WebElement consulting;
 
 
+    @FindBy(css = "a[href='/login']")
+    public WebElement account;
+
+
 }
 
 

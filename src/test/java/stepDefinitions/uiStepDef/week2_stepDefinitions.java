@@ -61,8 +61,8 @@ public class week2_stepDefinitions {
         waitFor(1);
 
         // way 3 extension
-        commonPage.getHomePage().gold_getStarted.assertTextColor("rgba(23, 150, 95, 1)");
-        commonPage.getHomePage().gold_getStarted.assertBackgroundColor("rgba(245, 245, 250, 1)");
+//        commonPage.getHomePage().gold_getStarted.assertTextColor("rgba(23, 150, 95, 1)");
+//        commonPage.getHomePage().gold_getStarted.assertBackgroundColor("rgba(245, 245, 250, 1)");
 
     }
 

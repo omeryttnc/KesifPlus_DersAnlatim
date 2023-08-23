@@ -6,7 +6,14 @@ import utilities.BrowserUtilities;
 
 import static stepDefinitions.Hooks.driver;
 
-public class LoginPage extends CommonPage {
+public class LoginPage extends CommonPage{
+    @FindBy(css = "#email-uniq")                        public WebElement email;
+    @FindBy(css = "#password-uniq")                     public WebElement password;
+    @FindBy(css = ".mainButton-light-outlined")                     public WebElement loginButton;
+
+
+
+
 
     @FindBy(id = "email-uniq")
     private WebElement email;
@@ -26,6 +33,7 @@ public class LoginPage extends CommonPage {
         submit.click();
 
     }
+
 
 
 }
