@@ -37,3 +37,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+*/_Manifold_Temp_Main_*.java
+
