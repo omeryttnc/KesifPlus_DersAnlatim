@@ -31,7 +31,8 @@ public class HomePage extends CommonPage {
     //css -> li > a[href='/consulting']: / in xpath
     //css -> li a[href='/consulting']: // in xpath
     @FindBy(xpath = "//a[text()='Consulting']")
-    public  WebElement consulting;
+    public WebElement consulting;
+
 
 }
 
