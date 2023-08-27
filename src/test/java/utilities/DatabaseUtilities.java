@@ -14,13 +14,19 @@ public class DatabaseUtilities {
     private static PreparedStatement preparedStatement;
     public static ResultSet resultSet;
 
+//http://test.kesifplus.com:8080
+//
+//username : tester
+//
+//password : ueO2axAiA1b5
+
 
     public static void createMysqlConnection() {
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://www.kesifplus.com:3306/kesifplus",
+                    "jdbc:mysql://test.kesifplus.com:3306/kesifplus",
                     "root",
-                    "12345678"
+                    "cMk76oD4Z9dP"
             );
         } catch (SQLException e) {
             throw new RuntimeException(e);
