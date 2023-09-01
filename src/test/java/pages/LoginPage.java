@@ -13,7 +13,7 @@ public class LoginPage extends CommonPage{
 
 
     @FindBy(css = "#loginForm [type='submit']")
-    private WebElement submit;
+    public WebElement submit;
 
     public void login(String userEmail, String userPassword) {
 

@@ -39,6 +39,12 @@ public class Driver {
     Creating re-usable utility method that will return same 'driver' instance everytime we call it.
      */
     public static WebDriver getDriver() {
+        //*********Burayi false yaparak browser i gorebiliriz*****************************************
+        isHeadless = false;
+
+        if (!System.getProperty("os.name").contains("Windows") && !System.getProperty("os.name").contains("Mac"))
+            isHeadless = true;
+
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\target");
         // isFullScreen = true;
@@ -46,26 +52,19 @@ public class Driver {
         // browserType = "chrome";
         //  browserType = "firefox";
 
-//***********Burayi false yaparak browser i gorebiliriz*******************************************
-        // isHeadless = false;
-
         //setting various capabilities for browsers
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setExperimentalOption("prefs", chromePrefs);
 
+        chromeOptions.addArguments("use-fake-ui-for-media-stream");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--window-size=1920,1080");
+        chromeOptions.addArguments("--remote-allow-origins=*");
+
         if (isHeadless) {
-            chromeOptions.addArguments("use-fake-ui-for-media-stream");
-            chromeOptions.addArguments("--disable-gpu");
             chromeOptions.addArguments("--headless");
-            chromeOptions.addArguments("--window-size=1920,1080");
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
-            chromeOptions.addArguments("--remote-allow-origins=*");
-        } else {
-            chromeOptions.addArguments("use-fake-ui-for-media-stream");
-            chromeOptions.addArguments("--disable-gpu");
-            chromeOptions.addArguments("--window-size=1920,1080");
-            chromeOptions.addArguments("--remote-allow-origins=*");
         }
 
         FirefoxOptions firefoxOptions = new FirefoxOptions();

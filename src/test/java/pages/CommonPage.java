@@ -1,9 +1,9 @@
 package pages;
 
 import org.openqa.selenium.support.PageFactory;
+import pages.PanelPages.ProfilePage;
 
 import static stepDefinitions.Hooks.driver;
-
 
 public abstract class CommonPage {
     public CommonPage() {
@@ -18,6 +18,8 @@ public abstract class CommonPage {
 
     private RegisterPage registerPage;
     private WelcomePage welcomePage;
+
+    private ProfilePage profilePage;
 
     public WelcomePage getWelcomePage() {
         if (welcomePage == null) {
@@ -58,5 +60,11 @@ public abstract class CommonPage {
         if(userPanelPage == null)
             userPanelPage = new UserPanelPage();
         return userPanelPage;
+    }
+
+    public ProfilePage getProfilePage() {
+        if(profilePage == null)
+            profilePage = new ProfilePage();
+        return profilePage;
     }
 }
