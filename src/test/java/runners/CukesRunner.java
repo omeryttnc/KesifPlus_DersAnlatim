@@ -14,7 +14,11 @@ import org.junit.runner.RunWith;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         features = "src/test/resources/features",
-        glue = "stepDefinitions"
+        glue = "stepDefinitions",
+        tags = "@week5",
+//        false -> browser acar, testi calistirir
+//        true -> steplerin dogrulugunu, duzenini, olup olmadiigni kontrol eder, testi calistirmaz
+        dryRun = false
 
 )
 public class CukesRunner {

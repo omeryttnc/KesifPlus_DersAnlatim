@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 
+import enums.EnumCalismasi;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -48,12 +49,23 @@ public class Hooks {
 
     @Before(order = 1, value = "@UI")
     public void setup() {
+        System.out.println("ui");
 
         driver = Driver.getDriver();
         deneme = new Deneme("omer", 5);
         commonPage = new CommonPage() {
         };
         actions = new Actions(driver);
+    }
+
+    @Before(order = 1, value = "@login")
+    public void login() {
+        System.out.println("login");
+
+        driver.get("https://kesifplus.com/login");
+        commonPage.getLoginPage().email.sendKeys(EnumCalismasi.DEMOKESIF.getEmail());
+        commonPage.getLoginPage().password.sendKeys(EnumCalismasi.DEMOKESIF.getPassword());
+        commonPage.getLoginPage().submit.click();
     }
 
     @After(value = "@UI")
@@ -64,7 +76,6 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", "screenshots");
         }
         Driver.closeDriver();
-
     }
 
 
@@ -84,6 +95,7 @@ public class Hooks {
     public void closeSqlieDatabase() {
         DatabaseUtilities.closeDatabase();
     }
+
     @After("@MDB")
     public void closeMySqlDatabase() {
         DatabaseUtilities.closeDatabase();
