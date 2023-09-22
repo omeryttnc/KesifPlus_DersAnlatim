@@ -29,6 +29,8 @@ public class Hooks {
     public static int width;
     public static int height;
 
+    public static String token;
+
     @Before(value = "@headless", order = 0)
     public void setIsHeadless() {
         isHeadless = true;

@@ -11,17 +11,20 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static stepDefinitions.Hooks.token;
 
 public class ApiUtilities {
-    static Response response;
+    public static Response response;
     static ResponseSpecification responseSpecification;
     static RequestSpecification requestSpecification;
+    static Map<String, Object> body = new HashMap<>();
 
     public static String getToken(String email, String password) {
         Map<String, String> mapBody = new HashMap<>();
@@ -58,11 +61,11 @@ public class ApiUtilities {
         List<Integer> listId = response.jsonPath().getList("addresses.id");
         List<Object> listTitle = response.jsonPath().getList("addresses.title");
         List<Boolean> listisDefault = response.jsonPath().getList("addresses.isDefault");
-        InnerRecordAddressInfo innerRecordAddressInfo = new InnerRecordAddressInfo(listId, listTitle,listisDefault);
+        InnerRecordAddressInfo innerRecordAddressInfo = new InnerRecordAddressInfo(listId, listTitle, listisDefault);
         return innerRecordAddressInfo;
     }
 
-    public record InnerRecordAddressInfo(List<Integer> listId, List<Object> listTitle,List<Boolean> isDefault) {
+    public record InnerRecordAddressInfo(List<Integer> listId, List<Object> listTitle, List<Boolean> isDefault) {
     }
 
 
@@ -70,6 +73,33 @@ public class ApiUtilities {
                                            String city, String state, String postal) {
 
     }
+
+    public class Admin {
+        public static void adminLogin(String email, String password) {
+            body.put("email", email);
+            body.put("password", password);
+
+            response = given().contentType(ContentType.JSON).body(body).post("https://test.kesifplus.com/api/admin-login");
+
+            token = response.jsonPath().getString("token");
+
+            response.prettyPrint();
+        }
+
+        public static void getUsers() {
+            response = given().contentType(ContentType.TEXT).body(token).post("https://test.kesifplus.com/api/users");
+//            response.prettyPrint();
+        }
+
+        public static void deleteUser(String email) {
+            body.put("user", email);
+            body.put("token", token);
+
+            response = given().contentType(ContentType.JSON).body(body).post("https://test.kesifplus.com/api/admin/remove-user");
+            response.prettyPrint();
+        }
+    }
+
 
     public class InnerClassCreateAddress {
         private boolean isDefault;
